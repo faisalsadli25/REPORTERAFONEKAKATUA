@@ -21,6 +21,7 @@
         <section id="DEVICE" class="bg-black/20 p-6 rounded-3xl backdrop-blur-sm border border-white/5"></section>
         <section id="AKSESORIS" class="bg-black/20 p-6 rounded-3xl backdrop-blur-sm border border-white/5"></section>
         <section id="TV" class="bg-black/20 p-6 rounded-3xl backdrop-blur-sm border border-white/5"></section>
+        <section id="LAPTOP" class="bg-black/20 p-6 rounded-3xl backdrop-blur-sm border border-white/5"></section>
         
         <div class="text-center pt-8">
             <a href="index.html" class="inline-block px-8 py-3 bg-white text-slate-900 rounded-full font-bold hover:bg-slate-200 transition-all shadow-xl">
@@ -40,7 +41,7 @@
         }
 
         // Penamaan objek section yang konsisten
-        const sectionsData = { DEVICE: [], AKSESORIS: [], TV: [] };
+        const sectionsData = { DEVICE: [], AKSESORIS: [], TV: [] , LAPTOP: [] };
 
         fetch(CSV_URL)
         .then(r => r.text())
@@ -79,6 +80,7 @@
             renderUI("DEVICE", "#60a5fa");    // Blue
             renderUI("AKSESORIS", "#facc15"); // Yellow
             renderUI("TV", "#4ade80");        // Green
+            renderUI("LAPTOP","#4ade80");
         });
 
         function renderUI(type, color) {
