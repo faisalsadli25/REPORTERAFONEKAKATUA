@@ -2,53 +2,107 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <title>M114 DASHBOARD - M FAISAL SADLI</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M185 DASHBOARD - LIGHT EDITION</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <style>
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background: #0b0f1a; }
-        .glass-card {
-            background: rgba(22, 29, 49, 0.7);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.05);
-            transition: transform 0.3s ease;
+        :root {
+            --bg-main: #f1f5f9;
+            --card-white: rgba(255, 255, 255, 0.8);
+            --accent-blue: #0284c7;
+            --text-dark: #0f172a;
         }
-        .glass-card:hover { transform: scale(1.01); }
+
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            background: var(--bg-main);
+            background-image: 
+                radial-gradient(circle at 0% 0%, rgba(56, 189, 248, 0.1) 0, transparent 40%),
+                radial-gradient(circle at 100% 100%, rgba(99, 102, 241, 0.1) 0, transparent 40%);
+            background-attachment: fixed;
+            color: var(--text-dark);
+        }
+
+        .glass-card {
+            background: var(--card-white);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            border-color: rgba(2, 132, 199, 0.2);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+
+        .title-gradient {
+            background: linear-gradient(to right, #0f172a, #334155);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
     </style>
 </head>
-<body class="text-slate-100 min-h-screen p-4 md:p-8">
+<body class="min-h-screen p-4 sm:p-6 lg:p-10">
 
-<div class="max-w-[1600px] mx-auto w-full">
-    <header class="mb-8 flex justify-between items-center bg-[#161d31] p-8 rounded-[2rem] border border-white/5 shadow-2xl">
-        <div class="flex items-center gap-6">
-            <a href="index.html" class="bg-white/5 hover:bg-white/10 p-4 rounded-xl border border-white/10 transition-all">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-                </svg>
+<div class="max-w-[1400px] mx-auto">
+    <header class="mb-8 lg:mb-10 flex flex-col md:flex-row justify-between items-center gap-6 glass-card p-6 rounded-[2rem]">
+        <div class="flex items-center gap-5 w-full md:w-auto">
+            <a href="index.html" class="flex items-center justify-center bg-slate-100 hover:bg-white w-12 h-12 rounded-2xl border border-slate-200 transition-all group shadow-sm">
+                <i class="fa-solid fa-arrow-left text-slate-600 group-hover:-translate-x-1 transition-transform"></i>
             </a>
             <div>
-                <h1 class="text-3xl font-black text-white italic tracking-tighter uppercase">📊 M185 MONITOR</h1>
-                <p class="text-blue-400 font-bold text-[10px] uppercase tracking-[0.3em]">Wide Horizon Dashboard</p>
+                <div class="flex items-center gap-2">
+                    <h1 class="text-xl sm:text-2xl lg:text-3xl font-extrabold tracking-tight uppercase italic title-gradient">
+                        M185 <span class="text-sky-600">MONITOR</span>
+                    </h1>
+                </div>
+                <p class="text-slate-400 font-bold text-[9px] uppercase tracking-[0.3em] mt-1">Management Information System</p>
             </div>
         </div>
-        <button onclick="location.reload()" class="bg-blue-500 hover:bg-blue-600 px-6 py-3 rounded-xl font-bold text-xs uppercase tracking-widest transition-all">
-            🔄 Refresh
-        </button>
+        
+        <div class="flex items-center gap-3 w-full md:w-auto">
+            <button onclick="location.reload()" class="flex-1 md:flex-none flex items-center justify-center gap-3 bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 px-6 py-3 rounded-2xl font-bold text-xs uppercase tracking-widest transition-all shadow-sm active:scale-95">
+                <i class="fa-solid fa-rotate"></i> Sync Data
+            </button>
+            <div class="w-12 h-12 rounded-2xl bg-sky-600 flex items-center justify-center text-white shadow-lg shadow-sky-200">
+                <i class="fa-solid fa-user-gear"></i>
+            </div>
+        </div>
     </header>
 
-    <div id="dashboard-grid" class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16"></div>
+    <div id="dashboard-grid" class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 mb-12">
+        <!-- Skeleton Loaders -->
+        <div class="glass-card p-10 rounded-[2.5rem] h-64 animate-pulse bg-white/50"></div>
+        <div class="glass-card p-10 rounded-[2.5rem] h-64 animate-pulse bg-white/50"></div>
+    </div>
 </div>
 
-<footer class="max-w-[1600px] mx-auto w-full pb-10">
-    <div class="bg-[#161d31]/50 p-8 rounded-[2rem] border border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
-        <div>
-            <p class="text-white font-black italic text-lg uppercase">M FAISAL SADLI</p>
-            <p class="text-slate-500 text-[10px] font-bold uppercase tracking-widest mt-1">Lead System Developer • v4.0 Stable</p>
+<footer class="max-w-[1400px] mx-auto pb-10">
+    <div class="glass-card p-6 rounded-[2rem] flex flex-col sm:flex-row justify-between items-center gap-6">
+        <div class="flex items-center gap-4">
+            <div class="w-10 h-10 bg-slate-900 rounded-xl flex items-center justify-center text-white font-black">
+                M
+            </div>
+            <div>
+                <p class="text-slate-900 font-extrabold text-sm uppercase">M Faisal Sadli</p>
+                <p class="text-slate-400 text-[9px] font-bold uppercase tracking-widest">Enterprise System v5.0</p>
+            </div>
         </div>
-        <div class="flex items-center gap-4 text-xs font-bold text-green-400 uppercase">
-            <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span> Live Sync Active
+        <div class="flex items-center gap-2 bg-emerald-50 px-4 py-2 rounded-full border border-emerald-100">
+            <span class="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span class="text-emerald-700 text-[10px] font-bold uppercase tracking-widest">Server Connected</span>
         </div>
     </div>
 </footer>
@@ -62,13 +116,20 @@ function toNum(val) {
     return parseInt(cleaned) || 0;
 }
 
+const catIcons = {
+    "STORE": "fa-store", "ERO": "fa-user-tie", "PROMOTOR": "fa-id-badge",
+    "FINANCING": "fa-wallet", "TECPROTEC": "fa-shield-halved", "INDOSAT": "fa-signal",
+    "XL": "fa-tower-cell", "TELKOMSEL": "fa-tower-broadcast", "DEVICE": "fa-mobile",
+    "AKSESORIS": "fa-headphones", "TV": "fa-tv", "LAPTOP": "fa-laptop"
+};
+
 async function init() {
     try {
         const res = await fetch(SHEET_URL + "&t=" + new Date().getTime());
         const tsv = await res.text();
         const rows = tsv.split(/\r?\n/).map(row => row.split('\t').map(c => c.trim()));
 
-        const cats = ["STORE", "ERO", "PROMOTOR", "FINANCING", "TECPROTEC", "INDOSAT", "XL","TELKOMSEL", "DEVICE", "AKSESORIS", "TV" , "LAPTOP"];
+        const cats = Object.keys(catIcons);
         let dataMap = {};
         let currentCat = "";
 
@@ -81,7 +142,7 @@ async function init() {
             if (currentCat) {
                 const name = cleanCols[0];
                 const skip = ["NAMA", "TARGET", "VALUE", "QTY", "TOTAL", "ACHIEVEMENT"];
-                if (!skip.some(s => name.toUpperCase() === s)) {
+                if (name && !skip.some(s => name.toUpperCase() === s)) {
                     let value = (currentCat === "FINANCING") ? toNum(cleanCols[2]) : toNum(cleanCols[3]);
                     let target = toNum(cleanCols[1]);
                     let acv = (currentCat === "FINANCING") ? (cleanCols[4] || "0%") : (cleanCols[5] || "0%");
@@ -92,78 +153,79 @@ async function init() {
 
         const grid = document.getElementById('dashboard-grid');
         grid.innerHTML = "";
+        
         Object.entries(dataMap).forEach(([title, items], idx) => {
             if (items.length > 0) {
                 items.sort((a, b) => b.value - a.value); 
                 renderCard(title, items, idx);
             }
         });
-    } catch (e) { console.error(e); }
+    } catch (e) { 
+        console.error(e);
+        document.getElementById('dashboard-grid').innerHTML = `<div class="col-span-full p-20 text-center glass-card rounded-[2rem]">Failed to sync database.</div>`;
+    }
 }
 
 function renderCard(title, items, idx) {
     const isStore = title === "STORE";
-    const colors = ['#3b82f6', '#10b981', '#f59e0b', '#ef4444', '#a855f7', '#06b6d4'];
-    const themeColor = colors[idx % colors.length];
+    const palettes = [
+        { main: '#0284c7', sub: '#e0f2fe' }, // Blue
+        { main: '#059669', sub: '#ecfdf5' }, // Green
+        { main: '#7c3aed', sub: '#f5f3ff' }, // Purple
+        { main: '#ea580c', sub: '#fff7ed' }  // Orange
+    ];
+    const theme = palettes[idx % palettes.length];
     const id = `chart-${idx}`;
-    
-    const highPerson = items[0];
-    const allSame = items.every(i => i.value === highPerson.value);
-    const salesOnly = items.filter(i => i.value > 0);
-    const lowPerson = salesOnly.length > 0 ? salesOnly[salesOnly.length - 1] : null;
+    const topPerformer = items[0];
 
-    // Perhitungan Deviasi khusus Store
-    const deviasiValue = highPerson.target - highPerson.value;
-    const isLunas = deviasiValue <= 0;
-
-    const chartHeight = Math.max(180, items.length * 30);
     const div = document.createElement('div');
-    div.className = `glass-card p-6 rounded-[2rem] flex flex-col md:flex-row gap-6`;
+    div.className = `glass-card p-6 sm:p-8 rounded-[2.5rem] flex flex-col sm:flex-row gap-8`;
     
-    let bottomStatusHTML = "";
-    if (isStore) {
-        // TAMPILAN KHUSUS STORE: Menampilkan Deviasi
-        bottomStatusHTML = `
-            <p class="text-[9px] ${isLunas ? 'text-green-500' : 'text-red-500'} font-bold uppercase mb-1">Gap Deviation</p>
-            <p class="text-xs font-black ${isLunas ? 'text-green-400' : 'text-red-400'}">
-                ${isLunas ? '🏆 GOAL ACHIEVED!' : 'Rp -' + deviasiValue.toLocaleString('id-ID')}
-            </p>
-        `;
-    } else if (allSame) {
-        bottomStatusHTML = `<p class="text-[10px] text-amber-500 font-bold uppercase tracking-widest">⚖️ Status: Balance</p>`;
-    } else if (lowPerson) {
-        bottomStatusHTML = `
-            <p class="text-[9px] text-red-500 font-bold uppercase mb-1">⚠️ Performance Terendah</p>
-            <p class="text-sm font-bold text-white truncate">${lowPerson.name}</p>
-            <p class="text-sm font-black text-red-400 mt-0.5">Rp ${lowPerson.value.toLocaleString('id-ID')}</p>
-        `;
-    }
-
     div.innerHTML = `
-        <div class="flex-[1.5] relative min-h-[200px]" style="height: ${chartHeight}px;">
+        <div class="w-full sm:w-[45%] relative h-[220px] flex items-center justify-center">
             <canvas id="${id}"></canvas>
             ${isStore ? `
-            <div class="absolute inset-0 flex items-center justify-center flex-col pointer-events-none">
-                <span class="text-3xl font-black text-white leading-none">${highPerson.acv}</span>
-                <span class="text-[10px] font-bold text-slate-500 uppercase mt-2">Achieved</span>
-            </div>` : ''}
+                <div class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
+                    <span class="text-3xl font-black text-slate-900">${topPerformer.acv}</span>
+                    <span class="text-[9px] font-bold text-slate-400 uppercase tracking-widest mt-1">Growth</span>
+                </div>
+            ` : ''}
         </div>
 
-        <div class="flex-1 flex flex-col justify-between border-l border-white/5 pl-6">
-            <div>
-                <h2 class="text-lg font-black text-white italic uppercase mb-4" style="border-left: 4px solid ${themeColor}; padding-left: 12px;">${title}</h2>
-                
-                <div class="bg-white/5 p-4 rounded-xl border border-white/5 mb-3">
-                    <p class="text-[9px] text-slate-500 font-bold uppercase mb-1">${isStore ? 'Current Value' : 'Peringkat 1'}</p>
-                    <p class="text-sm font-bold text-white truncate">${isStore ? 'Store Total' : highPerson.name}</p>
-                    <p class="text-sm font-black text-blue-400 mt-1">Rp ${highPerson.value.toLocaleString('id-ID')}</p>
+        <div class="w-full sm:w-[55%] flex flex-col justify-between border-t sm:border-t-0 sm:border-l border-slate-100 pt-6 sm:pt-0 sm:pl-8">
+            <div class="space-y-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl flex items-center justify-center text-lg" style="background: ${theme.sub}; color: ${theme.main}">
+                        <i class="fa-solid ${catIcons[title] || 'fa-chart-simple'}"></i>
+                    </div>
+                    <h2 class="text-lg font-extrabold text-slate-900 italic uppercase tracking-tight">${title}</h2>
                 </div>
 
-                <div class="bg-white/5 p-4 rounded-xl border border-white/5">
-                    ${bottomStatusHTML}
+                <div class="space-y-3">
+                    <div class="p-4 rounded-2xl bg-slate-50 border border-slate-100">
+                        <p class="text-[9px] text-slate-400 font-bold uppercase mb-1">${isStore ? 'Store Performance' : 'Leaderboard Rank #1'}</p>
+                        <p class="text-xs font-bold text-slate-700 truncate mb-1">${isStore ? 'Total Monthly Value' : topPerformer.name}</p>
+                        <p class="text-lg font-black" style="color: ${theme.main}">Rp ${topPerformer.value.toLocaleString('id-ID')}</p>
+                    </div>
+
+                    ${isStore ? `
+                        <div class="p-4 rounded-2xl bg-sky-50 border border-sky-100">
+                            <p class="text-[9px] text-sky-600 font-bold uppercase mb-1">Target Milestone</p>
+                            <p class="text-sm font-black text-slate-800">Rp ${topPerformer.target.toLocaleString('id-ID')}</p>
+                        </div>
+                    ` : `
+                        <div class="flex items-center justify-between px-2">
+                            <span class="text-[10px] font-bold text-slate-400 uppercase">System Health</span>
+                            <span class="text-[10px] font-black text-emerald-500 uppercase">Optimal</span>
+                        </div>
+                    `}
                 </div>
             </div>
-            <p class="text-[9px] font-black text-slate-600 uppercase mt-4 tracking-tighter italic italic">M114 Performance Engine</p>
+            
+            <div class="mt-6 flex justify-between items-center opacity-40">
+                <span class="text-[8px] font-bold uppercase tracking-tighter italic">Secured Environment</span>
+                <span class="text-[8px] font-black uppercase tracking-tighter">M185-LT</span>
+            </div>
         </div>
     `;
 
@@ -171,11 +233,22 @@ function renderCard(title, items, idx) {
     const ctx = document.getElementById(id).getContext('2d');
     
     if (isStore) {
-        const percentVal = parseInt(highPerson.acv) || 0;
+        const percentVal = parseInt(topPerformer.acv) || 0;
         new Chart(ctx, {
             type: 'doughnut',
-            data: { datasets: [{ data: [percentVal, percentVal >= 100 ? 0 : 100 - percentVal], backgroundColor: [themeColor, '#1e2741'], borderWidth: 0, borderRadius: 10 }] },
-            options: { cutout: '80%', responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } } }
+            data: { 
+                datasets: [{ 
+                    data: [percentVal, percentVal >= 100 ? 0 : 100 - percentVal], 
+                    backgroundColor: [theme.main, '#f1f5f9'], 
+                    borderWidth: 0, 
+                    borderRadius: 15
+                }] 
+            },
+            options: { 
+                cutout: '82%', responsive: true, maintainAspectRatio: false, 
+                plugins: { legend: { display: false }, tooltip: { enabled: false } },
+                animation: { duration: 1500, easing: 'easeOutQuart' }
+            }
         });
     } else {
         new Chart(ctx, {
@@ -184,37 +257,28 @@ function renderCard(title, items, idx) {
                 labels: items.map(i => i.name),
                 datasets: [{ 
                     data: items.map(i => i.value), 
-                    backgroundColor: items.map(i => {
-                        if (i.value === 0) return '#1f2937';
-                        if (!allSame && lowPerson && i.name === lowPerson.name) return '#ef4444'; 
-                        return themeColor;
-                    }), 
-                    borderRadius: 5,
-                    barThickness: 15
+                    backgroundColor: items.map((i, index) => index === 0 ? theme.main : '#e2e8f0'), 
+                    borderRadius: 8,
+                    barThickness: 12
                 }]
             },
             options: {
-                indexAxis: 'y',
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: { 
-                    legend: { display: false },
-                    tooltip: {
-                        callbacks: { label: (ctx) => ctx.raw === 0 ? " Belum ada jualan" : " Rp " + ctx.raw.toLocaleString('id-ID') }
-                    }
-                },
+                indexAxis: 'y', responsive: true, maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
                 scales: { 
                     x: { display: false }, 
-                    y: { grid: { display: false }, border: { display: false }, ticks: { color: '#fff', font: { size: 9 } } } 
+                    y: { 
+                        grid: { display: false }, 
+                        border: { display: false }, 
+                        ticks: { color: '#94a3b8', font: { size: 9, weight: '600' } } 
+                    } 
                 }
             }
         });
     }
 }
 
-init();
+window.onload = init;
 </script>
 </body>
 </html>
-
-
