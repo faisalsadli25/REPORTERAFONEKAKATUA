@@ -43,16 +43,6 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0px); }
-        }
-
-        .float-animation {
-            animation: float 5s ease-in-out infinite;
-        }
     </style>
 </head>
 
@@ -66,9 +56,10 @@
             </div>
 
             <nav class="hidden md:flex gap-8 font-bold text-slate-500 text-[10px] uppercase tracking-[0.2em]">
-                <a href="#" class="text-sky-600 border-b-2 border-sky-600 pb-1">Home</a>
+                <a href="index.html" class="text-sky-600 border-b-2 border-sky-600 pb-1">Home</a>
                 <a href="dashboard.html" class="hover:text-slate-900 transition-colors">Analytics</a>
                 <a href="ero_achievement.html" class="hover:text-slate-900 transition-colors">Achievements</a>
+                <a href="ero_report.html" class="hover:text-slate-900 transition-colors">Report</a>
                 <a href="vas_report.html" class="hover:text-slate-900 transition-colors">VAS</a>
             </nav>
 
@@ -80,14 +71,12 @@
             </div>
         </div>
 
-        <!-- Mobile Menu -->
-        <div id="mobileMenu" class="hidden md:hidden bg-white border-t border-slate-100 animate-in fade-in slide-in-from-top-4 duration-300">
-            <nav class="flex flex-col p-6 gap-4 font-bold text-xs uppercase tracking-widest">
-                <a href="index.html" class="p-3 text-sky-600 bg-sky-50 rounded-xl">Home</a>
-                <a href="dashboard.html" class="p-3 hover:bg-slate-50 rounded-xl">Dashboard Analytics</a>
-                <a href="ero_achievement.html" class="p-3 hover:bg-slate-50 rounded-xl">ERO Achievements</a>
-                <a href="vas_report.html" class="p-3 hover:bg-slate-50 rounded-xl">VAS Report</a>
-            </nav>
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-t border-slate-100 p-6 space-y-4 font-bold text-xs uppercase tracking-widest">
+            <a href="index.html" class="block p-3 text-sky-600 bg-sky-50 rounded-xl">Home</a>
+            <a href="dashboard.html" class="block p-3 hover:bg-slate-50 rounded-xl">Analytics</a>
+            <a href="ero_achievement.html" class="block p-3 hover:bg-slate-50 rounded-xl">Achievements</a>
+            <a href="ero_report.html" class="block p-3 hover:bg-slate-50 rounded-xl">Detailed Report</a>
+            <a href="vas_report.html" class="block p-3 hover:bg-slate-50 rounded-xl">VAS Report</a>
         </div>
     </header>
 
@@ -118,15 +107,27 @@
                 </div>
             </div>
 
-            <!-- Card: ERO Achievement -->
-            <div onclick="openModal('ero_achievement.html')" class="glass-card rounded-[2.5rem] p-10 cursor-pointer group border-2 border-sky-100">
+            <!-- Card: ERO Achievement (Leaderboard) -->
+            <div onclick="openModal('ero_achievement.html')" class="glass-card rounded-[2.5rem] p-10 cursor-pointer group border-2 border-emerald-100">
                 <div class="w-16 h-16 mb-8 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-3xl group-hover:bg-emerald-600 group-hover:text-white transition-all duration-500 shadow-sm">
                     <i class="fa-solid fa-award"></i>
                 </div>
                 <h3 class="font-black text-xl mb-3 tracking-tight group-hover:text-emerald-600 transition-colors uppercase italic text-slate-800">Achievement</h3>
-                <p class="text-xs text-slate-400 leading-relaxed font-medium uppercase tracking-wider mb-6">Peringkat & pencapaian target tim ERO.</p>
+                <p class="text-xs text-slate-400 leading-relaxed font-medium uppercase tracking-wider mb-6">Peringkat & performa visual tim ERO.</p>
                 <div class="flex items-center gap-2 text-[10px] font-bold text-emerald-600 uppercase tracking-widest">
                     View Leaderboard <i class="fa-solid fa-arrow-right-long group-hover:translate-x-2 transition-transform"></i>
+                </div>
+            </div>
+
+            <!-- Card: Detailed Report -->
+            <div onclick="openModal('ero_report.html')" class="glass-card rounded-[2.5rem] p-10 cursor-pointer group border-2 border-rose-100">
+                <div class="w-16 h-16 mb-8 rounded-2xl bg-rose-50 text-rose-600 flex items-center justify-center text-3xl group-hover:bg-rose-600 group-hover:text-white transition-all duration-500 shadow-sm">
+                    <i class="fa-solid fa-file-invoice-dollar"></i>
+                </div>
+                <h3 class="font-black text-xl mb-3 tracking-tight group-hover:text-rose-600 transition-colors uppercase italic text-slate-800">Data Report</h3>
+                <p class="text-xs text-slate-400 leading-relaxed font-medium uppercase tracking-wider mb-6">Tabel rincian unit & value per kategori.</p>
+                <div class="flex items-center gap-2 text-[10px] font-bold text-rose-600 uppercase tracking-widest">
+                    Open Table Data <i class="fa-solid fa-arrow-right-long group-hover:translate-x-2 transition-transform"></i>
                 </div>
             </div>
 
@@ -142,71 +143,41 @@
                 </div>
             </div>
 
-            <!-- Card: Store Data -->
-            <div class="glass-card rounded-[2.5rem] p-10 cursor-pointer group opacity-60">
-                <div class="w-16 h-16 mb-8 rounded-2xl bg-slate-100 text-slate-500 flex items-center justify-center text-3xl group-hover:bg-slate-900 group-hover:text-white transition-all duration-500 shadow-sm">
-                    <i class="fa-solid fa-database"></i>
-                </div>
-                <h3 class="font-black text-xl mb-3 tracking-tight uppercase italic text-slate-800">Archive</h3>
-                <p class="text-xs text-slate-400 leading-relaxed font-medium uppercase tracking-wider mb-6">Data historis performa tim M185.</p>
-                <div class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Locked</div>
-            </div>
-
         </div>
     </main>
 
-    <footer class="max-w-7xl mx-auto px-6 pb-12">
-        <div class="glass-card p-8 rounded-[2rem] flex flex-col md:flex-row items-center justify-between gap-6 border-slate-200">
-            <div class="flex items-center gap-4 text-center md:text-left">
-                <div class="w-12 h-12 rounded-2xl bg-slate-900 flex items-center justify-center text-white text-xl">
-                    <i class="fa-solid fa-user-tie"></i>
-                </div>
-                <div>
-                    <p class="font-black text-slate-900 uppercase italic">M Faisal Sadli</p>
-                    <p class="text-[9px] font-bold text-slate-400 uppercase tracking-widest mt-0.5">Systems Architect & Developer</p>
-                </div>
-            </div>
-            <div class="flex flex-col items-center md:items-end gap-1">
-                <p class="text-[8px] font-black text-slate-400 uppercase tracking-[0.4em]">M185-LT CORE ENGINE v5.0</p>
-                <p class="text-[8px] font-bold text-slate-300 uppercase italic uppercase">© 2026 Secured Infrastructure</p>
-            </div>
-        </div>
-    </footer>
-
     <div id="navModal" class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm hidden items-center justify-center z-[100] p-6">
-        <div class="bg-white rounded-[2.5rem] p-10 w-full max-w-sm text-center shadow-2xl transition-all scale-95 duration-300" id="modalContent">
+        <div class="bg-white rounded-[2.5rem] p-10 w-full max-w-sm text-center shadow-2xl transition-all scale-95 opacity-0 duration-300" id="modalContent">
             <div class="w-20 h-20 bg-sky-50 text-sky-600 rounded-3xl flex items-center justify-center mx-auto mb-6 text-3xl shadow-inner border border-sky-100">
                 <i class="fa-solid fa-arrow-up-right-from-square"></i>
             </div>
-            <h2 class="text-2xl font-black mb-3 text-slate-900 uppercase italic">Akses Detail?</h2>
+            <h2 class="text-2xl font-black mb-3 text-slate-900 uppercase italic">Buka Modul?</h2>
             <p class="text-slate-400 mb-8 text-xs leading-relaxed font-medium uppercase tracking-wider">
-                Anda akan diarahkan ke modul analisis data spesifik untuk departemen ini.
+                Anda akan diarahkan ke halaman analisis data spesifik.
             </p>
 
             <div class="space-y-3">
                 <button id="confirmBtn" class="w-full py-4 rounded-2xl bg-slate-900 text-white font-black text-xs uppercase tracking-[0.2em] hover:bg-black transition-all active:scale-95 shadow-xl shadow-slate-200">
-                    Buka Laporan
+                    Konfirmasi
                 </button>
-                <button id="cancelBtn" class="w-full py-4 rounded-2xl bg-slate-50 text-slate-400 font-black text-xs uppercase tracking-[0.2em] hover:bg-slate-100 transition-all">
-                    Kembali
+                <button id="cancelBtn" onclick="closeModal()" class="w-full py-4 rounded-2xl bg-slate-50 text-slate-400 font-black text-xs uppercase tracking-[0.2em] hover:bg-slate-100 transition-all">
+                    Batal
                 </button>
             </div>
         </div>
     </div>
 
     <script>
-        // Menu Toggle
-        const btn = document.getElementById('menuBtn');
-        const menu = document.getElementById('mobileMenu');
-        btn.addEventListener('click', () => menu.classList.toggle('hidden'));
-
-        // Modal Logic
         const modal = document.getElementById("navModal");
         const modalContent = document.getElementById("modalContent");
-        const cancelBtn = document.getElementById("cancelBtn");
         const confirmBtn = document.getElementById("confirmBtn");
-
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
         let targetUrl = "";
+
+        // Toggle Mobile Menu
+        menuBtn.onclick = () => mobileMenu.classList.toggle('hidden');
 
         function openModal(url) {
             targetUrl = url;
@@ -227,16 +198,15 @@
             }, 300);
         }
 
-        cancelBtn.onclick = closeModal;
         confirmBtn.onclick = () => {
             confirmBtn.innerHTML = '<i class="fa-solid fa-circle-notch animate-spin"></i> Loading...';
             window.location.href = targetUrl;
         };
 
+        // Close modal when clicking outside content
         modal.onclick = (e) => {
             if (e.target === modal) closeModal();
         };
     </script>
-
 </body>
 </html>
