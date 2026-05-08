@@ -58,6 +58,7 @@
             <nav class="hidden md:flex gap-8 font-bold text-slate-500 text-[10px] uppercase tracking-[0.2em]">
                 <a href="index.html" class="text-sky-600 border-b-2 border-sky-600 pb-1">Home</a>
                 <a href="dashboard.html" class="hover:text-slate-900 transition-colors">Analytics</a>
+                <a href="target.html" class="hover:text-slate-900 transition-colors">Target</a>
                 <a href="ero_achievement.html" class="hover:text-slate-900 transition-colors">Achievements</a>
                 <a href="ero_report.html" class="hover:text-slate-900 transition-colors">Report</a>
                 <a href="vas_report.html" class="hover:text-slate-900 transition-colors">VAS</a>
@@ -74,6 +75,7 @@
         <div id="mobileMenu" class="hidden md:hidden bg-white border-t border-slate-100 p-6 space-y-4 font-bold text-xs uppercase tracking-widest">
             <a href="index.html" class="block p-3 text-sky-600 bg-sky-50 rounded-xl">Home</a>
             <a href="dashboard.html" class="block p-3 hover:bg-slate-50 rounded-xl">Analytics</a>
+            <a href="target.html" class="block p-3 hover:bg-slate-50 rounded-xl">Target Monitor</a>
             <a href="ero_achievement.html" class="block p-3 hover:bg-slate-50 rounded-xl">Achievements</a>
             <a href="ero_report.html" class="block p-3 hover:bg-slate-50 rounded-xl">Detailed Report</a>
             <a href="vas_report.html" class="block p-3 hover:bg-slate-50 rounded-xl">VAS Report</a>
@@ -94,6 +96,18 @@
 
     <main class="max-w-7xl mx-auto px-6 pb-24">
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <!-- Card: Target Monitor -->
+            <div onclick="openModal('target.html')" class="glass-card rounded-[2.5rem] p-10 cursor-pointer group border-2 border-amber-100">
+                <div class="w-16 h-16 mb-8 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center text-3xl group-hover:bg-amber-600 group-hover:text-white transition-all duration-500 shadow-sm">
+                    <i class="fa-solid fa-bullseye"></i>
+                </div>
+                <h3 class="font-black text-xl mb-3 tracking-tight group-hover:text-amber-600 transition-colors uppercase italic text-slate-800">Target Monitor</h3>
+                <p class="text-xs text-slate-400 leading-relaxed font-medium uppercase tracking-wider mb-6">Pantau pencapaian target harian & sisa gap.</p>
+                <div class="flex items-center gap-2 text-[10px] font-bold text-amber-600 uppercase tracking-widest">
+                    Check Targets <i class="fa-solid fa-arrow-right-long group-hover:translate-x-2 transition-transform"></i>
+                </div>
+            </div>
 
             <!-- Card: Dashboard -->
             <div onclick="openModal('dashboard.html')" class="glass-card rounded-[2.5rem] p-10 cursor-pointer group">
