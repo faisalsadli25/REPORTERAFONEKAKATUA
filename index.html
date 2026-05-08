@@ -1,200 +1,242 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dashboard Tim ERAFONE N MORE KAKATUA</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>M185 Portal - White Premium</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
-  <style>
-    @keyframes gradientMove {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
+    <style>
+        :root {
+            --bg-main: #f8fafc;
+            --accent-sky: #0284c7;
+            --text-slate: #0f172a;
+        }
 
-    .animated-bg {
-      background: linear-gradient(-45deg, #9d8993, #960000, #06b6d4, #a855f7);
-      background-size: 400% 400%;
-      animation: gradientMove 8s ease infinite;
-    }
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            background: var(--bg-main);
+            background-image: 
+                radial-gradient(circle at 0% 0%, rgba(2, 132, 199, 0.05) 0, transparent 50%),
+                radial-gradient(circle at 100% 100%, rgba(99, 102, 241, 0.05) 0, transparent 50%);
+            color: var(--text-slate);
+        }
 
-    .glass-card {
-      background: rgba(255, 255, 255, 1);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    
-    .glass-card:hover {
-      background: rgba(255, 255, 255, 0.6);
-      transform: translateY(-5px);
-    }
-  </style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 1);
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08);
+            border-color: var(--accent-sky);
+        }
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+        .text-gradient {
+            background: linear-gradient(to right, #0f172a, #0284c7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .float-animation {
+            animation: float 5s ease-in-out infinite;
+        }
+    </style>
 </head>
 
-<body class="animated-bg min-h-screen font-sans">
+<body class="min-h-screen">
 
-<div class="min-h-screen bg-white/70 backdrop-blur-lg">
+    <header class="bg-white/70 backdrop-blur-md shadow-sm sticky top-0 z-50 border-b border-slate-100">
+        <div class="max-w-7xl mx-auto flex items-center justify-between p-4 md:px-8">
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 bg-slate-900 rounded-lg flex items-center justify-center text-white font-black text-sm">M</div>
+                <h1 class="font-extrabold text-xl tracking-tighter uppercase italic">M185 <span class="text-sky-600">SYSTEM</span></h1>
+            </div>
 
-  <header class="bg-white/90 shadow sticky top-0 z-50 backdrop-blur">
-    <div class="max-w-6xl mx-auto flex items-center justify-between p-4">
-      <h1 class="font-bold text-xl tracking-tight text-gray-800">M185 <span class="text-red-700">REPORT</span></h1>
+            <nav class="hidden md:flex gap-8 font-bold text-slate-500 text-[10px] uppercase tracking-[0.2em]">
+                <a href="#" class="text-sky-600 border-b-2 border-sky-600 pb-1">Home</a>
+                <a href="dashboard.html" class="hover:text-slate-900 transition-colors">Analytics</a>
+                <a href="ero_achievement.html" class="hover:text-slate-900 transition-colors">Achievements</a>
+                <a href="vas_report.html" class="hover:text-slate-900 transition-colors">VAS</a>
+            </nav>
 
-      <nav class="hidden md:flex gap-6 font-semibold text-gray-700 text-sm">
-        <a href="#" class="hover:text-red-700 transition">Home</a>
-        <a href="dashboard.html" class="hover:text-red-700 transition">Dashboard</a>
-        <a href="dashboardero.html" class="hover:text-red-700 transition text-red-600">Pencapaian ERO</a>
-        <a href="target.html" class="hover:text-red-700 transition">Target</a>
-        <a href="vas.html" class="hover:text-red-700 transition">VAS</a>
-        <a href="ero.html" class="hover:text-red-700 transition">ERO</a>
-      </nav>
+            <div class="flex items-center gap-4">
+                <span class="hidden sm:inline-block text-[9px] font-black text-emerald-500 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-100 uppercase tracking-widest">System Online</span>
+                <button id="menuBtn" class="md:hidden p-2 text-slate-600">
+                    <i class="fa-solid fa-bars-staggered text-xl"></i>
+                </button>
+            </div>
+        </div>
 
-      <button id="menuBtn" class="md:hidden p-2">
-        <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
-      </button>
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-t border-slate-100 animate-in fade-in slide-in-from-top-4 duration-300">
+            <nav class="flex flex-col p-6 gap-4 font-bold text-xs uppercase tracking-widest">
+                <a href="index.html" class="p-3 text-sky-600 bg-sky-50 rounded-xl">Home</a>
+                <a href="dashboard.html" class="p-3 hover:bg-slate-50 rounded-xl">Dashboard Analytics</a>
+                <a href="ero_achievement.html" class="p-3 hover:bg-slate-50 rounded-xl">ERO Achievements</a>
+                <a href="vas_report.html" class="p-3 hover:bg-slate-50 rounded-xl">VAS Report</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="max-w-7xl mx-auto pt-16 pb-12 px-6 text-center">
+        <div class="inline-block px-4 py-1.5 mb-6 rounded-full bg-slate-100 border border-slate-200 text-[9px] font-black uppercase tracking-[0.3em] text-slate-500">
+            Enterprise Performance Portal
+        </div>
+        <h2 class="text-4xl md:text-6xl font-black mb-6 text-gradient uppercase italic leading-tight">
+            MANAGEMENT <br class="hidden md:block"> INFORMATION SYSTEM
+        </h2>
+        <p class="text-slate-400 max-w-2xl mx-auto leading-relaxed text-sm md:text-base font-medium">
+            Akses pusat data performa toko, pencapaian tim ERO, dan laporan VAS secara real-time dalam satu ekosistem terpadu.
+        </p>
+    </section>
+
+    <main class="max-w-7xl mx-auto px-6 pb-24">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <!-- Card: Dashboard -->
+            <div onclick="openModal('dashboard.html')" class="glass-card rounded-[2.5rem] p-10 cursor-pointer group">
+                <div class="w-16 h-16 mb-8 rounded-2xl bg-sky-50 text-sky-600 flex items-center justify-center text-3xl group-hover:bg-sky-600 group-hover:text-white transition-all duration-500 shadow-sm">
+                    <i class="fa-solid fa-chart-line"></i>
+                </div>
+                <h3 class="font-black text-xl mb-3 tracking-tight group-hover:text-sky-600 transition-colors uppercase italic">Analytics</h3>
+                <p class="text-xs text-slate-400 leading-relaxed font-medium uppercase tracking-wider mb-6">Visualisasi performa toko harian & bulanan.</p>
+                <div class="flex items-center gap-2 text-[10px] font-bold text-sky-600 uppercase tracking-widest">
+                    Enter Dashboard <i class="fa-solid fa-arrow-right-long group-hover:translate-x-2 transition-transform"></i>
+                </div>
+            </div>
+
+            <!-- Card: ERO Achievement -->
+            <div onclick="openModal('ero_achievement.html')" class="glass-card rounded-[2.5rem] p-10 cursor-pointer group border-2 border-sky-100">
+                <div class="w-16 h-16 mb-8 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-3xl group-hover:bg-emerald-600 group-hover:text-white transition-all duration-500 shadow-sm">
+                    <i class="fa-solid fa-award"></i>
+                </div>
+                <h3 class="font-black text-xl mb-3 tracking-tight group-hover:text-emerald-600 transition-colors uppercase italic text-slate-800">Achievement</h3>
+                <p class="text-xs text-slate-400 leading-relaxed font-medium uppercase tracking-wider mb-6">Peringkat & pencapaian target tim ERO.</p>
+                <div class="flex items-center gap-2 text-[10px] font-bold text-emerald-600 uppercase tracking-widest">
+                    View Leaderboard <i class="fa-solid fa-arrow-right-long group-hover:translate-x-2 transition-transform"></i>
+                </div>
+            </div>
+
+            <!-- Card: VAS -->
+            <div onclick="openModal('vas_report.html')" class="glass-card rounded-[2.5rem] p-10 cursor-pointer group">
+                <div class="w-16 h-16 mb-8 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-3xl group-hover:bg-indigo-600 group-hover:text-white transition-all duration-500 shadow-sm">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+                <h3 class="font-black text-xl mb-3 tracking-tight group-hover:text-indigo-600 transition-colors uppercase italic text-slate-800">VAS Report</h3>
+                <p class="text-xs text-slate-400 leading-relaxed font-medium uppercase tracking-wider mb-6">Laporan proteksi & value added services.</p>
+                <div class="flex items-center gap-2 text-[10px] font-bold text-indigo-600 uppercase tracking-widest">
+                    Open Reports <i class="fa-solid fa-arrow-right-long group-hover:translate-x-2 transition-transform"></i>
+                </div>
+            </div>
+
+            <!-- Card: Store Data -->
+            <div class="glass-card rounded-[2.5rem] p-10 cursor-pointer group opacity-60">
+                <div class="w-16 h-16 mb-8 rounded-2xl bg-slate-100 text-slate-500 flex items-center justify-center text-3xl group-hover:bg-slate-900 group-hover:text-white transition-all duration-500 shadow-sm">
+                    <i class="fa-solid fa-database"></i>
+                </div>
+                <h3 class="font-black text-xl mb-3 tracking-tight uppercase italic text-slate-800">Archive</h3>
+                <p class="text-xs text-slate-400 leading-relaxed font-medium uppercase tracking-wider mb-6">Data historis performa tim M185.</p>
+                <div class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Locked</div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="max-w-7xl mx-auto px-6 pb-12">
+        <div class="glass-card p-8 rounded-[2rem] flex flex-col md:flex-row items-center justify-between gap-6 border-slate-200">
+            <div class="flex items-center gap-4 text-center md:text-left">
+                <div class="w-12 h-12 rounded-2xl bg-slate-900 flex items-center justify-center text-white text-xl">
+                    <i class="fa-solid fa-user-tie"></i>
+                </div>
+                <div>
+                    <p class="font-black text-slate-900 uppercase italic">M Faisal Sadli</p>
+                    <p class="text-[9px] font-bold text-slate-400 uppercase tracking-widest mt-0.5">Systems Architect & Developer</p>
+                </div>
+            </div>
+            <div class="flex flex-col items-center md:items-end gap-1">
+                <p class="text-[8px] font-black text-slate-400 uppercase tracking-[0.4em]">M185-LT CORE ENGINE v5.0</p>
+                <p class="text-[8px] font-bold text-slate-300 uppercase italic uppercase">© 2026 Secured Infrastructure</p>
+            </div>
+        </div>
+    </footer>
+
+    <div id="navModal" class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm hidden items-center justify-center z-[100] p-6">
+        <div class="bg-white rounded-[2.5rem] p-10 w-full max-w-sm text-center shadow-2xl transition-all scale-95 duration-300" id="modalContent">
+            <div class="w-20 h-20 bg-sky-50 text-sky-600 rounded-3xl flex items-center justify-center mx-auto mb-6 text-3xl shadow-inner border border-sky-100">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </div>
+            <h2 class="text-2xl font-black mb-3 text-slate-900 uppercase italic">Akses Detail?</h2>
+            <p class="text-slate-400 mb-8 text-xs leading-relaxed font-medium uppercase tracking-wider">
+                Anda akan diarahkan ke modul analisis data spesifik untuk departemen ini.
+            </p>
+
+            <div class="space-y-3">
+                <button id="confirmBtn" class="w-full py-4 rounded-2xl bg-slate-900 text-white font-black text-xs uppercase tracking-[0.2em] hover:bg-black transition-all active:scale-95 shadow-xl shadow-slate-200">
+                    Buka Laporan
+                </button>
+                <button id="cancelBtn" class="w-full py-4 rounded-2xl bg-slate-50 text-slate-400 font-black text-xs uppercase tracking-[0.2em] hover:bg-slate-100 transition-all">
+                    Kembali
+                </button>
+            </div>
+        </div>
     </div>
 
-    <div id="mobileMenu" class="hidden md:hidden bg-white border-t border-gray-100 shadow-xl">
-      <nav class="flex flex-col p-4 gap-3 font-semibold">
-        <a href="#" class="p-2 hover:bg-gray-50 rounded">Home</a>
-        <a href="dashboard.html" class="p-2 hover:bg-gray-50 rounded">Dashboard</a>
-        <a href="dashboardero.html" class="p-2 text-red-700 bg-red-50 rounded">Pencapaian ERO</a>
-        <a href="target.html" class="p-2 hover:bg-gray-50 rounded">Target</a>
-        <a href="vas.html" class="p-2 hover:bg-gray-50 rounded">VAS</a>
-        <a href="ero.html" class="p-2 hover:bg-gray-50 rounded">ERO</a>
-      </nav>
-    </div>
-  </header>
+    <script>
+        // Menu Toggle
+        const btn = document.getElementById('menuBtn');
+        const menu = document.getElementById('mobileMenu');
+        btn.addEventListener('click', () => menu.classList.toggle('hidden'));
 
-  <section class="text-center py-12 px-4">
-    <h2 class="text-3xl md:text-5xl font-extrabold mb-4 text-gray-900 tracking-tight text-center uppercase">
-      Laporan Tim M185
-    </h2>
-    <p class="text-gray-600 max-w-xl mx-auto leading-relaxed">
-      Monitor target harian dan pencapaian ERO secara real-time.
-    </p>
-  </section>
+        // Modal Logic
+        const modal = document.getElementById("navModal");
+        const modalContent = document.getElementById("modalContent");
+        const cancelBtn = document.getElementById("cancelBtn");
+        const confirmBtn = document.getElementById("confirmBtn");
 
-  <main class="max-w-6xl mx-auto px-4 pb-20">
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-center">
+        let targetUrl = "";
 
-      <div onclick="openModal('dashboard.html')" class="glass-card rounded-3xl shadow-lg p-10 cursor-pointer group">
-        <div class="mb-4 text-4xl text-blue-600 group-hover:scale-110 transition duration-300">
-          <i class="fa-solid fa-chart-pie"></i>
-        </div>
-        <span class="font-bold text-xl block group-hover:text-blue-700 transition">DASHBOARD</span>
-        <p class="text-xs text-gray-500 mt-2 uppercase tracking-widest font-semibold">Analytics M185</p>
-      </div>
+        function openModal(url) {
+            targetUrl = url;
+            modal.classList.remove("hidden");
+            modal.classList.add("flex");
+            setTimeout(() => {
+                modalContent.classList.remove("scale-95", "opacity-0");
+                modalContent.classList.add("scale-100", "opacity-100");
+            }, 50);
+        }
 
-      <div onclick="openModal('dashboardero.html')" class="glass-card rounded-3xl shadow-lg p-10 cursor-pointer group border-2 border-red-100">
-        <div class="mb-4 text-4xl text-emerald-600 group-hover:scale-110 transition duration-300">
-          <i class="fa-solid fa-trophy"></i>
-        </div>
-        <span class="font-bold text-xl block group-hover:text-emerald-700 transition text-gray-800">PENCAPAIAN ERO</span>
-        <p class="text-xs  mt-2 uppercase tracking-widest  font-bold text-emerald-600">New Analytics</p>
-      </div>
+        function closeModal() {
+            modalContent.classList.remove("scale-100", "opacity-100");
+            modalContent.classList.add("scale-95", "opacity-0");
+            setTimeout(() => {
+                modal.classList.add("hidden");
+                modal.classList.remove("flex");
+            }, 300);
+        }
 
-      <div onclick="openModal('target.html')" class="glass-card rounded-3xl shadow-lg p-10 cursor-pointer group">
-        <div class="mb-4 text-4xl text-red-600 group-hover:scale-110 transition duration-300">
-          <i class="fa-solid fa-users-viewfinder"></i>
-        </div>
-        <span class="font-bold text-xl block group-hover:text-red-700 transition text-gray-800">TIM M185</span>
-        <p class="text-xs text-gray-500 mt-2 uppercase tracking-widest font-semibold">Daily Target</p>
-      </div>
+        cancelBtn.onclick = closeModal;
+        confirmBtn.onclick = () => {
+            confirmBtn.innerHTML = '<i class="fa-solid fa-circle-notch animate-spin"></i> Loading...';
+            window.location.href = targetUrl;
+        };
 
-      <div onclick="openModal('vas.html')" class="glass-card rounded-3xl shadow-lg p-10 cursor-pointer group">
-        <div class="mb-4 text-4xl text-cyan-600 group-hover:scale-110 transition duration-300">
-          <i class="fa-solid fa-chart-line"></i>
-        </div>
-        <span class="font-bold text-xl block group-hover:text-cyan-700 transition text-gray-800">VAS</span>
-        <p class="text-xs text-gray-500 mt-2 uppercase tracking-widest font-semibold">Add-on Sales</p>
-      </div>
-
-      <div onclick="openModal('ero.html')" class="glass-card rounded-3xl shadow-lg p-10 cursor-pointer group">
-        <div class="mb-4 text-4xl text-purple-600 group-hover:scale-110 transition duration-300">
-          <i class="fa-solid fa-people-group"></i>
-        </div>
-        <span class="font-bold text-xl block group-hover:text-purple-700 transition text-gray-800">ERO</span>
-        <p class="text-xs text-gray-500 mt-2 uppercase tracking-widest font-semibold">Store Data</p>
-      </div>
-
-    </div>
-  </main>
-
-  <footer class="text-center py-4 mb-10 text-sm animated-bg font-bold rounded-full max-w-sm mx-auto text-white shadow-lg uppercase">
-    © 2026 BY M FAISAL SADLI
-  </footer>
-
-</div>
-
-<div id="vasModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm hidden items-center justify-center z-[100] p-4">
-  <div class="bg-white rounded-3xl p-8 w-full max-w-xs text-center shadow-2xl transition-all scale-95" id="modalContent">
-    <div class="w-16 h-16 bg-red-50 text-red-600 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
-      <i class="fa-solid fa-circle-question"></i>
-    </div>
-    <h2 class="text-xl font-bold mb-2 text-gray-800">
-      Lihat Progres?
-    </h2>
-    <p class="text-gray-500 mb-6 text-sm leading-relaxed">
-      Anda akan diarahkan ke halaman detail laporan yang Anda pilih.
-    </p>
-
-    <div class="flex flex-col gap-2">
-      <button id="confirmBtn" class="w-full py-3 rounded-xl bg-red-700 text-white font-bold hover:bg-red-800 transition active:scale-95 shadow-md shadow-red-200">
-        Ya, Lanjutkan
-      </button>
-      <button id="cancelBtn" class="w-full py-3 rounded-xl bg-gray-100 text-gray-600 font-bold hover:bg-gray-200 transition">
-        Batal
-      </button>
-    </div>
-  </div>
-</div>
-
-<script>
-  // Menu Toggle
-  const btn = document.getElementById('menuBtn');
-  const menu = document.getElementById('mobileMenu');
-  btn.addEventListener('click', () => menu.classList.toggle('hidden'));
-
-  // Modal Logic
-  const modal = document.getElementById("vasModal");
-  const modalContent = document.getElementById("modalContent");
-  const cancelBtn = document.getElementById("cancelBtn");
-  const confirmBtn = document.getElementById("confirmBtn");
-
-  let targetUrl = "";
-
-  function openModal(url) {
-    targetUrl = url;
-    modal.classList.remove("hidden");
-    modal.classList.add("flex");
-    setTimeout(() => {
-      modalContent.classList.remove("scale-95");
-      modalContent.classList.add("scale-100");
-    }, 10);
-  }
-
-  function closeModal() {
-    modalContent.classList.remove("scale-100");
-    modalContent.classList.add("scale-95");
-    setTimeout(() => {
-      modal.classList.add("hidden");
-      modal.classList.remove("flex");
-    }, 200);
-  }
-
-  cancelBtn.onclick = closeModal;
-  confirmBtn.onclick = () => window.location.href = targetUrl;
-
-  modal.onclick = (e) => {
-    if (e.target === modal) closeModal();
-  };
-</script>
+        modal.onclick = (e) => {
+            if (e.target === modal) closeModal();
+        };
+    </script>
 
 </body>
 </html>
-
